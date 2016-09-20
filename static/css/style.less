@@ -63,7 +63,8 @@ a {
 	}
 
 	h1 {
-		.bar-left();
+		// .bar-left();
+		text-align:center;
 		padding:@padding-header;
 	}
 
@@ -103,11 +104,17 @@ a {
 
 .section {
 	.clearfix();
+	margin-bottom:3em;
 }
 
 .feature-box {
 	.clearfix();
 	margin-bottom:24px;
+	padding:12px;
+
+	&:hover {
+		background-color:#f0f0ff;
+	}
 
 	a {
 		text-decoration: none;
@@ -122,11 +129,21 @@ a {
 	img {
 		.bar-left();
 		width:20%;
+		min-width:128px;
 		padding:0px 24px 24px 0px;
 	}
 
 	.info {
+
 		.bar-adjust();
+
+		h3 {
+			margin-top:0em;
+		}
+
+		* {
+			white-space:normal;
+		}
 	}
 }
 
