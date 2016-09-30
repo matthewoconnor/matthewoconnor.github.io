@@ -1,99 +1,183 @@
-<!doctype html>
-<html>
-  <head>
-    <title>Matthew O'Connor, Developer</title>
-    <link type="text/css" rel="stylesheet" href="/static/css/style.css" />
-  </head>
-  <body>
-  	<div class="header">
-	    <h1>Matt O'Connor</h1>
-	</div>
-	<div class="body">
+<!DOCTYPE html>
 
-		<div class="section">
-			<p>
-				Hello, my name is Matt O'Connor and this is my personal website on GitHub. I am a software developer working mostly in Python and Django, with over 3 years of experience.
-			</p>
-		</div>
+<html lang="en-us" >
 
-		<div class="section">
-			<h2 id="about"></a>About</h2>
-			<p>I studied physics at the University of Chicago and started writing code at the start of my 4th year there. After graduating in 2013 I interned as a developer at Arc Mobile for a few months. I currently work as web developer at the American Planning Association (APA), where I have been for over 3 years.</p>
-		</div>
+<head>
+<title>Matthew O'Connor</title>
+<link rel="stylesheet" type="text/css" href="/static/admin/css/base.css" />
+<link rel="stylesheet" type="text/css" href="/static/admin/css/dashboard.css" />
 
-		<div class="section">
-			<h2 id="resume">Resume</h2>
-			<p>Here is a link to my resume.</p>
-			<p><a href="/resume/">As a web page</a></p>
-			<p><a href="/static/pdf/resume.pdf">As a PDF</a></p>
-		</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+<script>
+    $(function(){
+        $.get("https://api.github.com/repos/matthewoconnor/mapplot/commits", function(data){
+            var recent_commits_html = "";
 
-		<div class="section">
-			<h2 id="projects">Projects</h2>
-			<p>
-				Here are a few of the projects I have worked on.
-			</p>
-			<div class="feature-box">
-				<a href="https://www.planning.org">
-					<img src="/static/img/apa-logo.png" />
-					<div class="info">
-						<h3>planning.org</h3>
-						<p>
-							A Python/Django website for the American Planning Association. APA is an independent, not-for-profit educational organization that provides leadership in the development of vital communities.
-						</p>
-					</div>
-				</a>
-			</div>
-			<div class="feature-box">
-				<a href="http://www.plan4health.us/">
-					<img src="/static/img/plan4health-logo.png" />
-					<div class="info">
-						<h3>plan4health.us</h3>
-						<p>
-							A Wordpress website for Plan4Health, a project aiming to build local capacity to address population health goals and promote the inclusion of health in non-traditional sectors.
-						</p>
-					</div>
-				</a>
-			</div>
-			<div class="feature-box">
-				<a href="https://itunes.apple.com/us/app/american-planning-association/id514114782?mt=8">
-					<img src="/static/img/apa-logo.png" />
-					<div class="info">
-						<h3>APA National Planning Conference App for iOS</h3>
-						<p>
-							The official mobile app for the annual National Planning Conference.
-						</p>
-					</div>
-				</a>
-			</div>
-			<div class="feature-box">
-				<a href="https://verifyhomeinspections.com/">
-					<img src="/static/img/verify-logo.png" />
-					<div class="info">
-						<h3>verifyhomeinspections.com</h3>
-						<p>
-							A Wordpress website for Verify Home Inspections Group, a company providing homebuyers with the knowledge and confidence they need to make a smart real estate purchase.
-						</p>
-					</div>
-				</a>
-			</div>
-			<div class="feature-box">
-				<a href="https://itunes.apple.com/us/app/meowhorn/id1127488741?mt=8">
-					<img src="/static/img/meowhorn-logo.png" />
-					<div class="info">
-						<h3>meowhorn for iOS</h3>
-						<p>
-							A silly mobile app that I created for fun.
-						</p>
-					</div>
-				</a>
-			</div>
-		</div>
+            for (var i = 0; i < data.length; i++){
+                var commit_date = new Date(data[i].commit.author.date);
+                console.log(commit_date);
+                var commit_html = "<li class='addlink'>" + 
+                    data[i].commit.message + 
+                    "<br/><span class='mini quiet'>" + commit_date + "</span>"
+                    "</li>";
+                recent_commits_html += commit_html;
+            }
+            $(".actionlist").html(recent_commits_html);
+        });
+    });
+</script>
 
-		<div class="section">
-			<h2 id="contact">Contact</h2>
-			<p>Email: <a href="mailto:moconnor16@gmail.com">moconnor16@gmail.com</a></p>
-		</div>
-	</div>
-  </body>
+</head>
+
+<body class=" dashboard" data-admin-utc-offset="0">
+
+<!-- Container -->
+<div id="container">
+
+    <!-- Header -->
+    <div id="header">
+
+        <div id="branding">
+            <h1 id="site-name"><a href="/">Matthew O'Connor</a></h1>
+        </div>
+         
+        <div id="user-tools">
+            Welcome,
+            <strong>visitor</strong>.
+            <a href="https://github.com/matthewoconnor">GitHub</a> /
+            <a href="https://www.linkedin.com/in/matthew-o-connor-02203055">LinkedIn</a>
+        </div>
+
+    </div>
+    <!-- END Header -->
+
+    <!-- Content -->
+    <div id="content" class="colMS">
+        
+        <h1>This is not the Django admin interface! It is my personal site on GitHub. Hello, my name is Matt O'Connor. I am a software developer working mostly in Python and Django, with over 3 years of experience.</h1>
+
+        <div id="content-main">
+
+        <div class="module">
+        <table>
+        <caption>
+            <a href="javascript:;" class="section" title="About">About</a>
+        </caption>
+        
+            <tr>
+                <th scope="row">I studied physics at the University of Chicago and started writing code at the start of my 4th year there. After graduating in 2013 I interned as a developer at Arc Mobile for a few months. I currently work as web developer at the American Planning Association (APA), where I have been for over 3 years.</th>
+                <td></td>
+                <td></td>           
+            </tr>
+        
+        </table>
+        </div>
+    
+        <div class="module">
+        <table>
+            <caption>
+                <a href="javascript:;" class="section" title="Resume">Resume</a>
+            </caption>
+        
+            <tr>
+                <th scope="row"><a href="/resume/">As a web page</a></th>
+                <td></td>
+                <td></td>
+            </tr>
+        
+            <tr>
+                <th scope="row"><a href="/static/pdf/resume.pdf">As a PDF</a></th>
+                <td></td>
+                <td></td>
+            </tr>
+        
+        </table>
+        </div>
+
+        <div class="module">
+        <table>
+            <caption>
+                <a href="javascript:;" class="section" title="Projects">Projects</a>
+            </caption>
+        
+            <tr>
+                <th scope="row"><a href="https://www.planning.org">planning.org</a><br/>
+                <span class="help">A Python/Django website for the American Planning Association. APA is an independent, not-for-profit educational organization that provides leadership in the development of vital communities.</span></th>
+                <td></td>
+                <td></td>
+            </tr>
+
+            <tr>
+                <th scope="row"><a href="http://www.plan4health.us/">plan4health.us</a><br/>
+                <span class="help">A Wordpress website for Plan4Health, a project aiming to build local capacity to address population health goals and promote the inclusion of health in non-traditional sectors.</span></th>
+                <td></td>
+                <td></td>
+            </tr>
+
+            <tr>
+                <th scope="row"><a href="https://itunes.apple.com/us/app/american-planning-association/id514114782?mt=8">APA National Planning Conference App for iOS</a><br/>
+                <span class="help">The official mobile app for the annual National Planning Conference.</span></th>
+                <td></td>
+                <td></td>
+            </tr>
+
+            <tr>
+                <th scope="row"><a href="https://verifyhomeinspections.com/">verifyhomeinspections.com</a><br/>
+                <span class="help">A Wordpress website for Verify Home Inspections Group, a company providing homebuyers with the knowledge and confidence they need to make a smart real estate purchase.</span></th>
+                <td></td>
+                <td></td>
+            </tr>
+
+            <tr>
+                <th scope="row"><a href="https://itunes.apple.com/us/app/meowhorn/id1127488741?mt=8">meowhorn for iOS</a><br/>
+                <span class="help">A silly mobile app that I created for fun.</span></th>
+                <td></td>
+                <td></td>
+            </tr>
+
+            <tr>
+                <th scope="row"><a href="https://github.com/matthewoconnor/mapplot">mapplot</a><br/>
+                <span class="help">A python project for view location based data through kml files</span></th>
+                <td></td>
+                <td></td>
+            </tr>
+        
+        </table>
+        </div>
+
+        <div class="module">
+        <table>
+            <caption>
+                <a href="javascript:;" class="section" title="Contact">Contact</a>
+            </caption>
+        
+            <tr>
+                <th scope="row">email: <a href="mailto:moconnor16@gmail.com">moconnor16@gmail.com</a></th>
+                <td></td>
+                <td></td>
+            </tr>
+        
+        </table>
+        </div>    
+
+</div>
+
+        
+<div id="content-related">
+    <div class="module" id="recent-actions-module">
+        <h2>Recent actions</h2>
+        <h3>Commits to mapplot</h3>
+        <ul class="actionlist"></ul>
+    </div>
+</div>
+
+<br class="clear" />
+</div>
+<!-- END Content -->
+
+<div id="footer"></div>
+</div>
+<!-- END Container -->
+
+</body>
 </html>
